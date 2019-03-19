@@ -7,19 +7,26 @@
     <form action="<?php echo base_url().'home/cek_bilangan'?>" method="post" enctype="multipart/form-data" >
     <div class="form-group">
             <label for="uname">Masukkan Bilangan Bilangan P :</label>
-            <input type="text" class="form-control" id="uname" placeholder="Bilangan prima" name="xbilp" required>
+            <input type="number" class="form-control" id="uname" placeholder="Bilangan prima" name="xbilp" required>
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
             <label for="uname">Masukkan Bilangan Bilangan Q :</label>
-            <input type="text" class="form-control" id="uname" placeholder="Bilangan prima" name="xbilq" required>
+            <input type="number" class="form-control" id="uname" placeholder="Bilangan prima" name="xbilq" required>
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
             <label for="uname">Masukkan Bilangan Bilangan S :</label>
-            <input type="text" class="form-control" id="uname" placeholder="Bilangan prima" name="xbils" required>
+            <input type="number" class="form-control" id="uname" placeholder="Bilangan prima" name="xbils" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="uname">Masukkan Bilangan Bilangan A :</label>
+            <input type="number" class="form-control" id="uname" placeholder="Bilangan Acak" name="xbila" required>
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
@@ -48,14 +55,14 @@
         if ($jum == 2){ ?>
             <div class="container">
                 <div class="alert alert-info">
-                    <strong><?php echo $tempp ?></strong> adalah bilangan <strong>Prima</strong>.
+                    <strong><?php echo "P = ".$tempp ?></strong> adalah bilangan <strong>Prima</strong>.
                 </div> 
             </div>
         <?php }
         else{ ?>
             <div class="container">
                 <div class="alert alert-danger">
-                    <strong><?php echo $tempp ?></strong> adalah Bukan Bilangan <strong>Prima</strong>.
+                    <strong><?php echo "P = ".$tempp ?></strong> adalah Bukan Bilangan <strong>Prima</strong>.
                 </div> 
             </div>
         <?php }
@@ -74,7 +81,7 @@
             if($i == $bilq){ ?>
                 <div class="container">
                     <div class="alert alert-info">
-                        <strong><?php echo $i ?></strong> adalah Bilangan Prima dan Faktor dari  <strong><?php echo $bilgcd?></strong>.
+                        <strong><?php echo "Q = ".$i ?></strong> adalah Bilangan Prima dan Faktor dari  <strong><?php echo $bilgcd?></strong>.
                     </div> 
                 </div>
             <?php }
@@ -103,11 +110,11 @@
         </div> 
     </div>
 
-    <?php if($bils < $bilq){
+    <?php if($bils > $bilq){
         ?>
         <div class="container">
             <div class="alert alert-info">
-                <?php echo $bils." Tidak boleh lebih kecil dari".$bilq ?>
+                <?php echo "S = ".$bils." Tidak boleh lebih besar dari".$bilq ?>
             </div> 
         </div>
     <?php }else{?>
@@ -117,10 +124,26 @@
             </div> 
         </div>
     <?php }?>
+        <div class="container">
+            <div class="alert alert-info">
+                <?php echo "A = ".$bila?>
+            </div> 
+        </div>
 
+        <div class="container">
+            <div class="alert alert-info">
+               <?php 
+
+                    $singkat1 = pow($bila, -1);
+                    $singkat2 = pow($singkat1, $bils);
+                    $singkat3 = $singkat2%$bilp;
+                    echo $singkat2;
+
+               ?>
+            </div> 
+        </div>
 
         
-
 
 </body>
 </html>
