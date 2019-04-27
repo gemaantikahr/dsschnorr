@@ -1,6 +1,9 @@
 <html>
-<?php $this->load->view("_partials/head.php")?>
-    <body>
+<head>
+    <?php $this->load->view("_partials/head.php")?>
+</head>
+
+
 <body>
 
     <div class="container">
