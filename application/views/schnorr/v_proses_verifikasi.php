@@ -61,32 +61,40 @@
             }
             $hashsemua = sha1($hashingpertama.$simpan[0]);
         ?>
-        <!-- hasing data -->
-
-    <?php if($dsstored==$hashsemua){
-        ?>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">DS Processed</div>
-            <div class="col-sm-8"><?php echo $hashsemua?></div>
-            <div class="col-sm-4">DS Stored</div>
-            <div class="col-sm-8"><?php echo $dsstored?></div>
-            <div class="col-sm-12"><div class="alert alert-info" role="alert">
-    Sudah Terverifikasi di ITB dan IPB dan UAD.!
+    <form action="<?php echo base_url().'mahasiswa/simpan_dsstored/'.$nim?>" method="post">
+        <div class="col-sm-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" value="<?php echo $hashsemua?>" id="myInput" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" onclick="myFunction()">Copy</button> 
+                    </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="xkode" placeholder="Masukkan kode verifikasi di atas">
+                    <div class="input-group-append">
+                        <input type="submit" name="submit" class="btn btn-info" value="submit">  
+                    </div>
+            </div>
         </div>
-    <?php }else{?>
-        <div class="container">
-        <div class="row">
-            <div class="col-sm-4">DS Processed</div>
-            <div class="col-sm-8"><?php echo $hashsemua?></div>
-            <div class="col-sm-4">DS Stored</div>
-            <div class="col-sm-8"><?php echo $dsstored?></div>
-            <div class="col-sm-12"><div class="alert alert-danger" role="alert">
-         Belum terferivikasi.! silahkan menghubungi Administrator
-        </div>
-        </div>
-    <?php } ?>
+    </form>
+    </div>
+    <script>
+        function myFunction() {
+            /* Get the text field */
+            var copyText = document.getElementById("myInput");
+
+            /* Select the text field */
+            copyText.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+        } 
+    </script>
     <?php $this->load->view("_partials/js.php")?>
 </body>
 </html>

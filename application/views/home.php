@@ -5,6 +5,9 @@
 
 
 <body>
+    <div class="container">
+        <?php $this->load->view("_partials/navbar.php")?>
+    </div>
 
     <div class="container">
     <form action="<?php echo base_url().'home/cek_bilangan'?>" method="post" enctype="multipart/form-data" >
@@ -145,13 +148,6 @@
                ?>
             </div> 
         </div>
-
-        
-
-</body>
-</html>
-
-
 <?php $this->load->view("_partials/js.php") ?>
     </body>
 </html>

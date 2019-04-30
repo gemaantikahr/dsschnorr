@@ -12,13 +12,13 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="#">Data Mahasiswa</a>
+            <a class="nav-link" href="<?php echo site_url('mahasiswa')?>">Data Mahasiswa</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Verifikasi Mahasiswa</a>
+            <a class="nav-link" href="<?php echo site_url('mahasiswa/verifikasi')?>">Verifikasi Mahasiswa</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Digital Schnorr</a>
+            <a class="nav-link" href="<?php echo site_url('home')?>">Digital Schnorr</a>
             </li>
         </ul>
         </nav>

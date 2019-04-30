@@ -26,6 +26,16 @@ class M_mahasiswa extends CI_model{
         WHERE tbl_mahasiswa.nim = tbl_nilai.nim AND tbl_nilai.nim = '$nim'");
         return $query->result();
     }
+    
+    public function ds_stored($nim){
+        $query = $this->db->query("SELECT dsstored FROM tbl_mahasiswa WHERE nim='$nim'");
+        return $query->row()->dsstored;
+    }
+
+    public function update_dsstored($nim, $dsstored){
+        $query = $this->db->query("UPDATE tbl_mahasiswa SET dsstored='$dsstored' WHERE nim='$nim'");
+        return $query;
+    }
 
     
 }
