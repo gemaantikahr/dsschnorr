@@ -87,6 +87,7 @@
         </div>
         </div>
     <?php } ?>
+    <a href="<?php echo site_url('mahasiswa/schnorr/'.$nim)?>" class="btn btn-info" role="button">Lakukan Schnorr</a>
     <?php $this->load->view("_partials/js.php")?>
 </body>
 </html>

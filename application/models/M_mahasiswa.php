@@ -37,5 +37,14 @@ class M_mahasiswa extends CI_model{
         return $query;
     }
 
+    public function nilai_hash($nim){
+        $query = $this->db->query("SELECT dsstored FROM tbl_mahasiswa WHERE nim='$nim'");
+        return $query->row()->dsstored;
+    }
+    function nama_mhs($nim){
+        $query = $this->db->query("SELECT nama FROM tbl_mahasiswa WHERE nim='$nim'");
+        return $query->row()->nama;
+    }
+
     
 }

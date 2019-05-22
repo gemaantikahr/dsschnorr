@@ -16,6 +16,7 @@ class Mahasiswa extends CI_Controller{
         $data['hashdata'] = $this->m_mahasiswa->hashing_data($nim);
         $data['hashdata1'] = $this->m_mahasiswa->hashing_data1($nim);
         $data['dsstored'] = $this->m_mahasiswa->ds_stored($nim);
+        $data['nim'] = $nim;
         $this->load->view("schnorr/v_detail_mahasiswa", $data);
     }
 
@@ -38,6 +39,12 @@ class Mahasiswa extends CI_Controller{
         $dsstored = $this->input->post('xkode');
         $this->m_mahasiswa->update_dsstored($nim, $dsstored);
         redirect('mahasiswa/detail/'.$nim);
+    }
+
+    function schnorr($nim){
+        $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
+        $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
+        $this->load->view('schnorr/v_schnorr_e',$data);
     }
 
 

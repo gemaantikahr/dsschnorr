@@ -20,6 +20,9 @@
             <li class="nav-item">
             <a class="nav-link" href="<?php echo site_url('home')?>">Digital Schnorr</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo site_url('home/key_generation')?>">Digital Schnorr 1</a>
+            </li>
         </ul>
         </nav>
 
