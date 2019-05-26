@@ -3,6 +3,7 @@ class Mahasiswa extends CI_Controller{
 	function __construct(){
         parent::__construct();
         $this->load->model('m_mahasiswa');
+        $this->load->model('m_perhitungan');
 	}
 
 	function index(){
@@ -42,6 +43,10 @@ class Mahasiswa extends CI_Controller{
     }
 
     function schnorr($nim){
+        $data['bil_r']=$this->m_perhitungan->lihat_r();
+        $data['bil_s']=$this->m_perhitungan->lihat_s();
+        $data['bil_e']=$this->m_perhitungan->lihat_e();
+        $data['bil_q']=$this->m_perhitungan->lihat_q();
         $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
         $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
         $this->load->view('schnorr/v_schnorr_e',$data);
