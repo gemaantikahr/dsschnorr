@@ -38,7 +38,7 @@
         <?php 
             $temp1 = $bil_s*$bil_e;
             $temp2 = $bil_r+$temp1;
-            $bil_y = $temp2 % $bil_q;
+            $bil_y = fmod($temp2,$bil_q);
 
         ?>
         <div class="form-group">

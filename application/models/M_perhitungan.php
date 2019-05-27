@@ -50,5 +50,17 @@ class M_perhitungan extends CI_model{
         $query = $this->db->query("SELECT bil_q FROM tbl_perhitungan LIMIT 1");
         return $query->row()->bil_q;
     }
+    function lihat_v(){
+        $query = $this->db->query("SELECT bil_v FROM tbl_perhitungan LIMIT 1");
+        return $query->row()->bil_v;
+    }
+    function lihat_y(){
+        $query = $this->db->query("SELECT bil_y FROM tbl_perhitungan LIMIT 1");
+        return $query->row()->bil_y;
+    }
+    function lihat_x(){
+        $query = $this->db->query("SELECT bil_x FROM tbl_perhitungan LIMIT 1");
+        return $query->row()->bil_x;
+    }
 
 }

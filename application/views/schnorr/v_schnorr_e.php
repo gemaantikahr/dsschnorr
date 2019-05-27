@@ -41,7 +41,7 @@
         <h6>Menghitung nilai Y = (<?php echo $bil_r?> + <?php echo $bil_s?>*e ) mod <?php echo $bil_q?> oleh alise</h6>
         <?php
 
-            $tampung = $bir_s*$c;
+            $tampung = $bil_s*$c;
             $tampung1 = $tampung + $a;
             $hasil = fmod($tampung1,$d);
             echo $hasil;

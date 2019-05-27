@@ -64,6 +64,13 @@ class Home extends CI_Controller{
     public function bilangan_y(){
         $bily = $this->input->post('xbily');
         $this->m_perhitungan->tambah_y($bily);
+        $data['bil_a']=$this->m_perhitungan->lihat_a();
+        $data['bil_y']=$this->m_perhitungan->lihat_y();
+        $data['bil_v']=$this->m_perhitungan->lihat_v();
+        $data['bil_p']=$this->m_perhitungan->lihat_p();
+        $data['bil_e']=$this->m_perhitungan->lihat_e();
+        $data['bil_x']=$this->m_perhitungan->lihat_x();
+        $this->load->view("schnorr/v_proses_cocok", $data);
     }
 
 

@@ -13,7 +13,7 @@
         $jum=0;
         $tempp = $bilp;
         for ($i=1;$i<=$tempp;$i++){
-            if ($tempp % $i==0){
+            if (fmod($tempp,$i)==0){
                 $jum++;
            }
        } 
@@ -75,7 +75,7 @@
     <!-- mencari faktor prima dari suatu bilangan -->
     <?php $tempp1 = $bilgcd;
     for($i=2; $i<=$tempp1; $i++){
-        if($tempp1 % $i==0) {
+        if(fmod($tempp1, $i)==0) {
         //     if($i>2){
         //         echo " * ";
         // }
@@ -98,7 +98,7 @@
             <?php $tempp2 = $bilgcd;
             for($i=2; $i<=$tempp2; $i++){
         
-                if($tempp2 % $i==0) {
+                if(fmod($tempp2,$i)==0) {
                 if($i>2){
                 echo " * ";
                 }?>
@@ -138,7 +138,7 @@
 
                     $singkat1 = pow($bila, -1);
                     $singkat2 = pow($singkat1, $bils);
-                    $singkat3 = $singkat2%$bilp;
+                    $singkat3 = fmod($singkat2,$bilp);
                     echo $singkat2;
 
                ?>

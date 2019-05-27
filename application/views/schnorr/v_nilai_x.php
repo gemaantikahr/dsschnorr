@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <?php $this->load->view("_partials/head.php")?>
@@ -7,6 +8,7 @@
 <body>
     <div class="container">
         <?php $this->load->view("_partials/navbar.php")?>
+        <?php $this->load->view("fastexponent.php")?>
     </div>
 
     <div class="container">
@@ -29,16 +31,10 @@
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
-        <?php 
-            echo $bil_a.",";
-            echo $bil_r.",";
-            echo $bil_p.",";
-            $tampung = pow($bil_a,$bil_p);
-            echo $tampung%$bil_r;
-        ?>
+
         <div class="form-group">
             <label for="uname">Nilai Bilangan X : A^R mod P</label>
-            <input type="number" class="form-control" id="uname" placeholder="Bilangan Acak" name="xbilx" required>
+            <input type="number" class="form-control" id="uname" placeholder="Bilangan Acak" name="xbilx" value="<?php echo carinilai($bil_a, $bil_r, $bil_p);?>" required readonly>
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
