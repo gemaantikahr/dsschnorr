@@ -18,6 +18,9 @@
             <a class="nav-link" href="<?php echo site_url('mahasiswa/verifikasi')?>">Verifikasi Mahasiswa</a>
             </li>
             <li class="nav-item">
+            <a class="nav-link" href="<?php echo site_url('mahasiswa/keygenerator')?>">Bangun Kunci Mahasiswa</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link" href="<?php echo site_url('home')?>">Digital Schnorr</a>
             </li>
             <li class="nav-item">

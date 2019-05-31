@@ -38,26 +38,29 @@
                     $A=array(array($bilp,$bila  ),array(1,0),array(0,1)); 
                     for($i = 0; $i<3; $i++){
                         for($j=0; $j<2; $j++){
-                            echo $A[$i][$j]." ";
+                            // echo $A[$i][$j]." ";
                         }
-                        echo "<br>";
+                        // echo "<br>";
                     }
-                    
-                    echo $nM =(intdiv($A[0][0], $A[0][1]));
+
+                    while($A[0][1]!=0){
+                    //echo 
+                    $nM =(intdiv($A[0][0], $A[0][1]));
                     for($nI=0; $nI<3; $nI++){
                         $nX = $A[$nI][0]-$nM*$A[$nI][1];
                         $A[$nI][0] = $A[$nI][1];
                         $A[$nI][1] = $nX;
                     }
 
-                    echo "<br>";
-                    echo "setelah di rubah";
-                    echo "<br>";
+                    // echo "<br>";
+                    // echo "setelah di rubah";
+                    // echo "<br>";
                     for($i = 0; $i<3; $i++){
                         for($j=0; $j<2; $j++){
-                            echo $A[$i][$j]." ";
+                            //echo $A[$i][$j]." ";
                         }
-                        echo "<br>";
+                        // echo "<br>";
+                    }
                     }
                     if($A[2][0]>=0){
                         $nilaiee=$A[2][0];
@@ -73,13 +76,10 @@
         <!-- cek bilangan prima ato bukan -->
         
     <!-- mencari faktor prima dari suatu bilangan -->
-    <?php $tempp1 = $bilgcd;
+    <?php 
+    $tempp1 = $bilgcd;
     for($i=2; $i<=$tempp1; $i++){
-        if(fmod($tempp1, $i)==0) {
-        //     if($i>2){
-        //         echo " * ";
-        // }
-
+        if(fmod($tempp1, $i)==0) {  
             if($i == $bilq){ ?>
                 <div class="container">
                     <div class="alert alert-info">
@@ -95,14 +95,14 @@
 
     <div class="container">
         <div class="alert alert-info">
-            <?php $tempp2 = $bilgcd;
+            <?php 
+            $tempp2 = $bilgcd;
             for($i=2; $i<=$tempp2; $i++){
         
                 if(fmod($tempp2,$i)==0) {
                 if($i>2){
                 echo " * ";
                 }?>
-                
                         <?php echo $i ?>
                         <?php $tempp2 /= $i;
                         $i--;

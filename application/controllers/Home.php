@@ -3,6 +3,7 @@ class Home extends CI_Controller{
 	function __construct(){
         parent::__construct();
         $this->load->model('m_perhitungan');
+        $this->load->model('m_mahasiswa');
 	}
 
 	function index(){
@@ -73,5 +74,43 @@ class Home extends CI_Controller{
         $this->load->view("schnorr/v_proses_cocok", $data);
     }
 
+    public function simpan_kunci($nim){
+        $nilai_p = $this->input->post('xbilp');
+        $nilai_q = $this->input->post('xbilq');
+        $nilai_a = $this->input->post('xbila');
+        $nilai_s = $this->input->post('xbils');
+        $nilai_v = $this->input->post('xbilv');
+        $nilai_x = $this->input->post('xbilx');
+        $nilai_r = $this->input->post('xbilr');
+        $this->m_perhitungan->simpan_kunci($nim,$nilai_p,$nilai_q,$nilai_a,$nilai_s,$nilai_v,$nilai_x, $nilai_r);
+        $data['bil_r']=$this->m_perhitungan->lihat_r($nim);
+        $data['bil_s']=$this->m_perhitungan->lihat_s($nim);
+        $data['bil_e']=$this->m_perhitungan->lihat_e($nim);
+        $data['bil_q']=$this->m_perhitungan->lihat_q($nim);
+        $data['bil_a']=$this->m_perhitungan->lihat_a($nim);
+        $data['bil_p']=$this->m_perhitungan->lihat_p($nim);
+        $data['bil_v']=$this->m_perhitungan->lihat_v($nim);
+        $data['bil_x']=$this->m_perhitungan->lihat_x($nim);
+        $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
+        $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
+        $data['nim'] = $nim;
+        $data['model'] = $this->load->model('m_perhitungan');
+        $this->load->view('schnorr/v_proses_schnorr', $data);
+    }
+
+    function cek_kunci($nim){
+        $data['bil_r']=$this->m_perhitungan->lihat_r($nim);
+        $data['bil_s']=$this->m_perhitungan->lihat_s($nim);
+        $data['bil_e']=$this->m_perhitungan->lihat_e($nim);
+        $data['bil_q']=$this->m_perhitungan->lihat_q($nim);
+        $data['bil_a']=$this->m_perhitungan->lihat_a($nim);
+        $data['bil_p']=$this->m_perhitungan->lihat_p($nim);
+        $data['bil_v']=$this->m_perhitungan->lihat_v($nim);
+        $data['bil_x']=$this->m_perhitungan->lihat_x($nim);
+        $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
+        $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
+        $data['nim'] = $nim;
+
+    }
 
 }

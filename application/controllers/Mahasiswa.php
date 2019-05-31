@@ -43,13 +43,49 @@ class Mahasiswa extends CI_Controller{
     }
 
     function schnorr($nim){
-        $data['bil_r']=$this->m_perhitungan->lihat_r();
-        $data['bil_s']=$this->m_perhitungan->lihat_s();
-        $data['bil_e']=$this->m_perhitungan->lihat_e();
-        $data['bil_q']=$this->m_perhitungan->lihat_q();
+        $data['bil_r']=$this->m_perhitungan->lihat_r($nim);
+        $data['bil_s']=$this->m_perhitungan->lihat_s($nim);
+        $data['bil_e']=$this->m_perhitungan->lihat_e($nim);
+        $data['bil_q']=$this->m_perhitungan->lihat_q($nim);
+        $data['bil_a']=$this->m_perhitungan->lihat_a($nim);
+        $data['bil_p']=$this->m_perhitungan->lihat_p($nim);
+        $data['bil_v']=$this->m_perhitungan->lihat_v($nim);
+        $data['bil_x']=$this->m_perhitungan->lihat_x($nim);
         $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
         $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
         $this->load->view('schnorr/v_schnorr_e',$data);
+    }
+
+    function keygenerator(){
+        $data['mahasiswa'] = $this->m_mahasiswa->lihat_mahasiswa();
+        $this->load->view('schnorr/v_keygenerator', $data);
+    }
+
+    function buat_kunci($nim){
+        $data['nim'] = $nim;
+        $this->load->view('schnorr/v_buatkunci',$data);
+    }
+
+    function buka_kunci($nim){
+        $data['nim'] = $nim;
+        $data['nama']=$this->m_mahasiswa->nama_mhs($nim);
+        $this->load->view("schnorr/v_masuk_v", $data);
+    }
+    function cek_kunci($nim){
+        $data['nim'] = $nim;
+        $data['nama']=$this->m_mahasiswa->nama_mhs($nim);
+        $data['bil_r']=$this->m_perhitungan->lihat_r($nim);
+        $data['bil_s']=$this->m_perhitungan->lihat_s($nim);
+        $data['bil_e']=$this->m_perhitungan->lihat_e($nim);
+        $data['bil_q']=$this->m_perhitungan->lihat_q($nim);
+        $data['bil_a']=$this->m_perhitungan->lihat_a($nim);
+        $data['bil_p']=$this->m_perhitungan->lihat_p($nim);
+        $data['bil_x']=$this->m_perhitungan->lihat_x($nim);
+        $data['kunci_public']=$this->input->post('xpublik');
+        $data['nilaihash'] = $this->m_mahasiswa->nilai_hash($nim);
+        $data['nilaie'] = $this->m_perhitungan->nilai_e($nim);
+        $data['nilaiy'] = $this->m_perhitungan->nilai_y($nim);
+        $this->load->view("schnorr/v_pencocokan",$data);
     }
 
 
