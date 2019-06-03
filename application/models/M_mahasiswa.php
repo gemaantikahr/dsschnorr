@@ -46,5 +46,11 @@ class M_mahasiswa extends CI_model{
         return $query->row()->nama;
     }
 
+    function kunci_public(){
+        $query = $this->db->query("SELECT tbl_perhitungan.bil_v, tbl_mahasiswa.nim, tbl_mahasiswa.nama FROM tbl_mahasiswa, tbl_perhitungan WHERE 
+        tbl_perhitungan.nim = tbl_mahasiswa.nim");
+        return $query->result();
+    }
+
     
 }

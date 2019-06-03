@@ -1,8 +1,11 @@
 <?php 
     // cari nilai p
+    $this->load->view("fastexponent.php");
+    $syarat = 0;
+    while($syarat !=1){
     $index = 0;
     $indexgcd = 0;
-    for($i=1000; $i<=2000; $i++):
+    for($i=100; $i<=2100; $i++):
         $a=0;
         for($j=1; $j<=$i; $j++):
             if($i % $j == 0):
@@ -37,10 +40,12 @@
         // cari nilai a
         $randomindexgcd = array_rand($simpan_q);
         $nilai_q = $simpan_q[$randomindexgcd];
-        $nilai_a = mt_rand(2000, 10000);
-        $nilai_s = mt_rand(3, ($nilai_q-1));
-        $nilai_r = mt_rand(3, ($nilai_q-1));
+        $nilai_a = mt_rand(1, 100000);
+        $nilai_s = mt_rand(1, ($nilai_q-1));
+        $nilai_r = mt_rand(1, ($nilai_q-1));
         // dapet nilai a
+        $syarat = carinilai($nilai_a,$nilai_q,$nilai_p);
+    };
     
 ?>
 <html>
@@ -52,7 +57,7 @@
 <body>
     <div class="container">
     <?php $this->load->view("_partials/navbar.php")?>
-    <?php $this->load->view("fastexponent.php");
+    <?php 
         $nilai_x = carinilai($nilai_a,$nilai_r,$nilai_p);
     ?>
     </div>

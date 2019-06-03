@@ -86,4 +86,13 @@ class M_perhitungan extends CI_model{
         return $query;
     }
 
+    function delete_kunci($nim){
+        $query = $this->db->query("DELETE FROM tbl_perhitungan WHERE nim ='$nim'");
+        return $query;
+    }
+    function hapus_sampah(){
+        $query = $this->db->query("DELETE from tbl_perhitungan where bil_p = '0'");
+        return $query;
+    }
+
 }

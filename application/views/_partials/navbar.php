@@ -26,6 +26,9 @@
             <li class="nav-item">
             <a class="nav-link" href="<?php echo site_url('home/key_generation')?>">Digital Schnorr 1</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo site_url('mahasiswa/kunci_publik')?>">Kunci Public</a>
+            </li>
         </ul>
         </nav>
 

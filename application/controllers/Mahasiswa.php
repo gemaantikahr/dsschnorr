@@ -88,6 +88,14 @@ class Mahasiswa extends CI_Controller{
         $this->load->view("schnorr/v_pencocokan",$data);
     }
 
+    function kunci_publik(){
+        $data['publik'] = $this->m_mahasiswa->kunci_public();
+        $this->load->view('v_kunci_public', $data);
+    }
+    function delete_kunci($nim){
+        $this->m_perhitungan->delete_kunci($nim);
+        redirect('mahasiswa/kunci_publik');
+    }
 
 
 }   

@@ -95,6 +95,7 @@ class Home extends CI_Controller{
         $data['namamhs'] = $this->m_mahasiswa->nama_mhs($nim);
         $data['nim'] = $nim;
         $data['model'] = $this->load->model('m_perhitungan');
+        $this->m_perhitungan->hapus_sampah();
         $this->load->view('schnorr/v_proses_schnorr', $data);
     }
 
